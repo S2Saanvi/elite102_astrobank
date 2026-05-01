@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card" style="margin-top:30px;">
+  <h1>Find Your Account</h1>
+  <form method="POST" action="/search">
+    <label for="name">Account Holder Name</label>
+    <input type="text" id="name" name="name" placeholder="e.g. Saanvi Sharma" />
+
+    <label for="account_id">Account Number</label>
+    <input type="text" id="account_id" name="account_id" placeholder="e.g. 1234567890" />
+
+    <button type="submit">Search</button>
+  </form>
+
+  <div style="margin-top:24px; padding-top:20px; border-top:1px solid #eee;">
+    <p style="margin-bottom:12px; color:#555; font-size:14px;">Don't have an account yet?</p>
+    <a class="btn btn-outline" href="/create">+ New Account</a>
+  </div>
+</div>
+{% endblock %}

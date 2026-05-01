@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card" style="margin-top:30px;">
+  <h1>{{ acc.name }}</h1>
+  <p style="color:#888; font-size:13px;">Account ID: {{ acc.id }}</p>
+  <div class="balance">${{ "%.2f"|format(acc.balance) }}</div>
+
+  <div class="section">
+    <h2>Deposit</h2>
+    <form method="POST" action="/account/{{ acc.id }}/deposit">
+      <div class="row">
+        <input type="number" name="amount" placeholder="Amount ($)" min="0.01" step="0.01" required />
+        <button type="submit">Deposit</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="section">
+    <h2>Withdraw</h2>
+    <form method="POST" action="/account/{{ acc.id }}/withdraw">
+      <div class="row">
+        <input type="number" name="amount" placeholder="Amount ($)" min="0.01" step="0.01" required />
+        <button type="submit" style="background:#e53935;">Withdraw</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="section">
+    <a class="btn btn-outline" href="/">Back to Home</a>
+  </div>
+</div>
+{% endblock %}
